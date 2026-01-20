@@ -10,5 +10,26 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Include directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
+# FetchContent for managing dependencies
+include(FetchContent)
+
+# Fetch GLFW
+FetchContent_Declare(
+  glfw
+  GIT_REPOSITORY https://github.com/glfw/glfw.git
+  GIT_TAG        3.4
+)
+
+# Configure GLFW options
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(glfw)
+
+# Find OpenGL
+find_package(OpenGL REQUIRED)
+
 # Add subdirectories
 add_subdirectory(src)
+add_subdirectory(examples/glfw)
