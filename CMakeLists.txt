@@ -24,7 +24,12 @@ FetchContent_Declare(
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_WAYLAND OFF CACHE BOOL "" FORCE)
+
+# Disable Wayland by default for broader CI/headless compatibility
+# Users can re-enable with: cmake -DGLFW_BUILD_WAYLAND=ON
+if(NOT DEFINED GLFW_BUILD_WAYLAND)
+    set(GLFW_BUILD_WAYLAND OFF CACHE BOOL "" FORCE)
+endif()
 
 FetchContent_MakeAvailable(glfw)
 

@@ -49,7 +49,15 @@ int main() {
     glfwSwapInterval(1);
 
     std::cout << "GLFW/OpenGL initialized successfully!" << std::endl;
-    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+    
+    // Get and display OpenGL version
+    const GLubyte* version = glGetString(GL_VERSION);
+    if (version) {
+        std::cout << "OpenGL Version: " << version << std::endl;
+    } else {
+        std::cerr << "Warning: Could not retrieve OpenGL version" << std::endl;
+    }
+    
     std::cout << "Press ESC to close the window" << std::endl;
 
     // Main render loop
