@@ -39,3 +39,4 @@ find_package(OpenGL REQUIRED)
 # Add subdirectories
 add_subdirectory(src)
 add_subdirectory(examples/glfw)
+add_subdirectory(examples/wrappers)
