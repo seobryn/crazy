@@ -50,6 +50,10 @@ void Renderer::setBlending(bool enabled) {
     }
 }
 
+void Renderer::setViewport(int x, int y, int width, int height) {
+    glViewport(x, y, width, height);
+}
+
 const char* Renderer::getOpenGLVersion() {
     return reinterpret_cast<const char*>(glGetString(GL_VERSION));
 }

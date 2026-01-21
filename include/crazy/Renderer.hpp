@@ -74,6 +74,16 @@ public:
     void setBlending(bool enabled);
     
     /**
+     * @brief Set the OpenGL viewport
+     * 
+     * @param x X coordinate of the lower-left corner
+     * @param y Y coordinate of the lower-left corner
+     * @param width Width of the viewport
+     * @param height Height of the viewport
+     */
+    void setViewport(int x, int y, int width, int height);
+    
+    /**
      * @brief Get the OpenGL version string
      * 
      * @return const char* OpenGL version string or nullptr if unavailable

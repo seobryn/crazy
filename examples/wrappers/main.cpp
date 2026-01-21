@@ -46,9 +46,9 @@ int main() {
         // std::cout << "Mouse moved to: " << event.xpos << ", " << event.ypos << std::endl;
     });
     
-    app.getEventHandler().setWindowResizeCallback([](const crazy::WindowResizeEvent& event) {
+    app.getEventHandler().setWindowResizeCallback([&app](const crazy::WindowResizeEvent& event) {
         std::cout << "Window resized to: " << event.width << "x" << event.height << std::endl;
-        glViewport(0, 0, event.width, event.height);
+        app.getRenderer().setViewport(0, 0, event.width, event.height);
     });
     
     // Set up shutdown callback

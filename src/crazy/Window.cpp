@@ -83,10 +83,20 @@ void Window::swapBuffers() {
 }
 
 int Window::getWidth() const {
+    if (m_window) {
+        int width;
+        glfwGetFramebufferSize(m_window, &width, nullptr);
+        return width;
+    }
     return m_width;
 }
 
 int Window::getHeight() const {
+    if (m_window) {
+        int height;
+        glfwGetFramebufferSize(m_window, nullptr, &height);
+        return height;
+    }
     return m_height;
 }
 
